@@ -12,3 +12,4 @@
 <%@ include file = "carousel.jsp" %>
 </body>
 </html>
+<%@ include file = "footer.jsp" %>

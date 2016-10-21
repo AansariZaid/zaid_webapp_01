@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Entity
 @Table(name = "ProductData")
@@ -13,10 +18,27 @@ public class ProductModel {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@NotEmpty(message = "Please Enter Product Name")
 	private String name;
+	@NotEmpty(message = "Please Enter Category Name")
 	private String category;
+	@NotEmpty(message = "Please Enter Brand Name")
 	private String brand;
+	@Size(min=2)
 	private double price;
+	
+	@javax.persistence.Transient
+	MultipartFile file;
+	public MultipartFile getFile()
+	{
+		return file;
+	}
+	
+	public void setFile(MultipartFile file)
+	{
+		this.file = file;
+	}
+	
 	
 	public int getId() {
 		return id;

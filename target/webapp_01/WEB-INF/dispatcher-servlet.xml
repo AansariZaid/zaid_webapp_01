@@ -1,0 +1,139 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+	<bean id="HandlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+	<!--it's say that scan all controller and use it -->
+	
+	<context:component-scan base-package="com.zaid.webapp_01"/>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	
+<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- this tag is help to execute annotations -->
+	<mvc:annotation-driven />
+
+
+</beans>
+
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+if we want to autowire bean the below one is mandatroy
+<context:annotation-config />
+
+<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+destroy-method="close">
+<property name="driverClassName" value="org.h2.Driver" />
+<property name="url" value="jdbc:h2:tcp://localhost/~/Round" />
+<property name="username" value="sa" />
+<property name="password" value="" />
+</bean>
+
+ref is used to refer to a bean by its id
+
+<bean id="sessionFactory"
+class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+<property name="dataSource" ref="dataSource" />
+<property name="packagesToScan" value="com.zaid.webapp_01" />
+<property name="hibernateProperties">
+<props>
+<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+<prop key="hibernate.show_sql">true</prop>
+<prop key="hibernate.format_sql">true</prop>
+<prop key="hibernate.hbm2ddl.auto">create</prop>
+</props>
+</property>
+</bean>
+
+<bean id="transactionManager"
+class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
+<tx:annotation-driven />
+
+dto related beans
+<bean id="productDAO" class="com.zaid.webapp_01.ProductDAOImpl" />
+
+
+</beans>
+
+
+ -->
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+	<context:component-scan base-package="com.zaid.webapp_01" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:annotation-driven />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="org.h2.Driver"></property>
+		<property name="url" value="jdbc:h2:tcp://localhost/~/Round"></property>
+		<property name="username" value="sa"></property>
+		<property name="password" value=""></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:hibernateconfig.xml"></property>
+	</bean>
+
+	<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="session"></property>
+	</bean>
+
+</beans>
+ -->
