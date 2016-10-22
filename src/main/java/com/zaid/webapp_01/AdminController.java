@@ -1,6 +1,5 @@
 package com.zaid.webapp_01;
 
-
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,44 +50,65 @@ public class AdminController {
 		return "redirect:/admin";
 	}
 
-	
-	
-	@RequestMapping(value = "/admin/save", method = RequestMethod.POST)
-	public String adminSave(@Valid @ModelAttribute("product") ProductModel product, HttpServletRequest request, BindingResult result, Model model) {
+	@PostMapping(value = "/admin/save")
+	public String adminSave(@Valid @ModelAttribute("product") ProductModel product,BindingResult result, HttpServletRequest request,
+			 Model model) {
+
 		
-		if(result.hasErrors()){
+		if (result.hasErrors()) {
 			model.addAttribute("product", product);
-			model.addAttribute("productData", pDAO.getAll());
+			model.addAttribute("products", pDAO.getAll());
+			System.out.println("Found Errors in inputs");
 			return "/admin";
-		}
-		else if (product.getId() == 0) {
+		} 
+		if (product.getId() == 0) {
 			pDAO.insertProduct(product);
-			
+
 			MultipartFile file = product.getFile();
 			String originalFile = file.getOriginalFilename();
-			
+
 			String filepath = request.getSession().getServletContext().getRealPath("resources/images/productimages");
 			System.out.println("File path is " + filepath);
 			String filename = filepath + "\\" + product.getId() + ".jpg";
 			System.out.println("File path is " + filepath);
-			
-			try{
+
+			try {
 				byte image[] = product.getFile().getBytes();
 				BufferedOutputStream bof = new BufferedOutputStream(new FileOutputStream(filename));
 				bof.write(image);
 				bof.close();
-			}catch(IOException e){
+			} catch (IOException e) {
 				e.printStackTrace();
-			}catch (Exception e) {
+			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			
-			
+
 		} else {
 			pDAO.updateProduct(product);
-		}
+			
+			MultipartFile file = product.getFile();
+			String originalFile = file.getOriginalFilename();
 
+			String filepath = request.getSession().getServletContext().getRealPath("resources/images/productimages");
+			System.out.println("File path is " + filepath);
+			String filename = filepath + "\\" + product.getId() + ".jpg";
+			System.out.println("File path is " + filepath);
+
+			try {
+				byte image[] = product.getFile().getBytes();
+				BufferedOutputStream bof = new BufferedOutputStream(new FileOutputStream(filename));
+				bof.write(image);
+				bof.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+
+		}
+		
 		return "redirect:/admin";
 	}
 }

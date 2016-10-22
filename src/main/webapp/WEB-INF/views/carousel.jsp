@@ -27,19 +27,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="${cp }/${img }/carousel5.jpg" alt="Chania">
+        <img src="${cp }/${img }/carousel5.jpg" class = "img img-responsive">
       </div>
 
       <div class="item">
-        <img src="${cp }/${img }/carousel6.jpg" alt="Chania">
+        <img src="${cp }/${img }/carousel6.jpg" class = "img img-responsive">
       </div>
     
       <div class="item">
-        <img src="${cp }/${img }/carousel3.jpg" alt="Flower">
+        <img src="${cp }/${img }/carousel3.jpg" class = "img img-responsive">
       </div>
 
       <div class="item">
-        <img src="${cp }/${img }/carousel4.jpg" alt="Flower">
+        <img src="${cp }/${img }/carousel4.jpg" class = "img img-responsive">
       </div>
     </div>
 

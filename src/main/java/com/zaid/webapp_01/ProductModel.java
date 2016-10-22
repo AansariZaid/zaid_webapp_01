@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -24,7 +26,7 @@ public class ProductModel {
 	private String category;
 	@NotEmpty(message = "Please Enter Brand Name")
 	private String brand;
-	@Size(min=2)
+	
 	private double price;
 	
 	@javax.persistence.Transient

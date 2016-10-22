@@ -14,7 +14,6 @@ public class PageController {
 
 	@Autowired
 	ProductDAO pDAO;
-
 	@RequestMapping("/")
 	public ModelAndView landingPage() {
 		ModelAndView mv = new ModelAndView("landinpage");
@@ -29,6 +28,14 @@ public class PageController {
 
 	}
 
+	@RequestMapping("/cart")
+	public ModelAndView cartPage() {
+		ModelAndView mv = new ModelAndView("cart");
+		return mv;
+
+	}
+	
+
 	@RequestMapping("/home")
 	public ModelAndView homePage() {
 		ModelAndView mv = new ModelAndView("home");
@@ -38,7 +45,7 @@ public class PageController {
 
 	@RequestMapping("/register")
 	public ModelAndView registerPage() {
-		ModelAndView mv = new ModelAndView("register");
+		ModelAndView mv = new ModelAndView("payment");
 		return mv;
 
 	}

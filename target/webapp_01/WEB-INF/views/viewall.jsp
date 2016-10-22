@@ -1,15 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
 <%@ include file="linking.jsp"%>
 <%@ include file="navigator.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<title>viewall</title>
 
-</body>
-</html>
+
+<div class="container">
+
+	<div ng-app="myApp" ng-controller="myCtrl" ng-init="test='${scope}'">
+		<p>
+			<input type="text" class="form-control" id="usr" ng-model="test">
+		</p>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th ng-click="orderByMe('id')">ID</th>
+					<th ng-click="orderByMe('name')">Name</th>
+					<th ng-click="orderByMe('band')">Brand</th>
+					<th ng-click="orderByMe('category')">Category</th>
+					<th ng-click="orderByMe('price')">price</th>
+				</tr>
+				<tr ng-repeat="x in names | orderBy:myOrderBy | filter:test">
+					<td>{{x.id}}</td>
+					<td>{{x.name}}</td>
+					<td>{{x.brand}}</td>
+					<td>{{x.category}}</td>
+					<td>{{x.price}}</td>
+					<td></td>
+					<td>
+						<div class="">
+							<button type="button" class="btn btn-primary" href= "">View</button>&#160;
+				<!-- 			<button type="button" class="btn btn-primary" href= "">Edit</button>&#160;
+							<button type="button" class="btn btn-primary" href= "">Delete</button>&#160; -->
+							<button type="button" class="btn btn-primary" href= "">Add to
+								Cart</button>
+						</div>
+					</td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<%@ include file="footer.jsp"%>
+<script src="resources/js/dataservice.js"></script>

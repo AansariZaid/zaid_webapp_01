@@ -16,7 +16,9 @@
 					<th ng-click="orderByMe('name')">Name</th>
 					<th ng-click="orderByMe('band')">Brand</th>
 					<th ng-click="orderByMe('category')">Category</th>
-					<th ng-click="orderByMe('price')">price</th>
+					<th ng-click="orderByMe('price')">Price</th>
+					<th>Image</th>
+					<th>&#160</th>
 				</tr>
 				<tr ng-repeat="x in names | orderBy:myOrderBy | filter:test">
 					<td>{{x.id}}</td>
@@ -24,14 +26,15 @@
 					<td>{{x.brand}}</td>
 					<td>{{x.category}}</td>
 					<td>{{x.price}}</td>
-					<td></td>
+					<td><img src="${cp}/resources/images/productimages/{{x.id }}.jpg" height = "150" width = "150"/></td>
 					<td>
 						<div class="">
-							<button type="button" class="btn btn-primary" href= "">View</button>&#160;
-				<!-- 			<button type="button" class="btn btn-primary" href= "">Edit</button>&#160;
+							<button type="button" class="btn btn-primary" href="">View</button>
+							&#160;
+							<!-- 			<button type="button" class="btn btn-primary" href= "">Edit</button>&#160;
 							<button type="button" class="btn btn-primary" href= "">Delete</button>&#160; -->
-							<button type="button" class="btn btn-primary" href= "">Add to
-								Cart</button>
+							<button type="button" class="btn btn-primary" href="">Add
+								to Cart</button>
 						</div>
 					</td>
 				</tr>

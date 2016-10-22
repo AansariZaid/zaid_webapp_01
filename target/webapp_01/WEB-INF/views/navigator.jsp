@@ -14,15 +14,22 @@
 			<a class="navbar-brand" href="home">Securetronic</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li ><a href="home">Home</a></li>
-			<li><a href="aboutus">About Us</a></li>
-			<li><a href="contactus">Contact US</a></li>
-			<li><a href="viewall">View All Product</a></li>
-			<li><a href="admin">Admin</a></li>
+			<li ><a href="${cp }/home">Home</a></li>
+			<li><a href="${cp }/aboutus">About Us</a></li>
+			<li><a href="${cp }/contactus">Contact US</a></li>
+			<li><a href="${cp }/viewall">View All Product</a></li>
+			<li><a href="${cp }/admin"><span class="glyphicon glyphicon-user"></span>  Admin</a></li>
 		</ul>
+		
 		<ul class="nav navbar-nav navbar-right">
-      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<li><a href="${cp }/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      <li><a href="${cp }/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="${cp }/login"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+      
+    <!-- web flow is being called from here using membership in href -->
+      <li><a href = "memberShip"><span class="glyphicon glyphicon-log-out"></span> Check Out</a></li>
+      
+      
     </ul>
 	</div>
 	</nav>
