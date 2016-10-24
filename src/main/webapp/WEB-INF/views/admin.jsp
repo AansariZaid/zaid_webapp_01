@@ -4,9 +4,9 @@
 <%@ include file="navigator.jsp"%>
 <div class="container">
 
-	<div class="panel panel-default">
+	<div class="panel panel-default col-sm-8 col-sm-offset-2">
 
-		<div class="panel-heading">Product Details</div>
+		<div class="row panel-heading">Product Details</div>
 
 		<div class="panel-body">
 
@@ -14,58 +14,86 @@
 				modelAttribute="product" enctype="multipart/form-data">
 
 				<c:if test="${!empty product}">
-					<tr>
-						<td><form:label path="id">
+					<div class="row">
+						<div class="col-sm-3">
+							<form:label path="id">
 								<spring:message text="Product Id" />
-							</form:label></td>
-						<td><form:input path="id" readonly="true"
-								class="form-control" disabled="true" /> <form:hidden path="id" />
-							<!-- <span
-								class="glyphicon glyphicon-lock "></span> --></td>
-					</tr>
+							</form:label>
+						</div>
+						<div class="col-sm-9">
+							<form:input path="id" readonly="true" class="form-control"
+								disabled="true" />
+							<form:hidden path="id" />
+						</div>
+					</div>
 				</c:if>
-
-				<form:label path="">Product Name</form:label>
-				<form:input path="name" cssClass="form-control" required="" />
-				<span><form:errors path="name" cssClass="error" /></span>
-				<form:label path="">Product Brand</form:label>
-				<form:input path="brand" cssClass="form-control" required="" />
-				<span><form:errors path="brand" class="error" /></span>
+				<br>
+				<div class="row">
+					<div class="col-sm-3">
+						<form:label path="">Product Name</form:label>
+					</div>
+					<div class="col-sm-9">
+						<form:input path="name" cssClass="form-control" required="" />
+						<span><form:errors path="name" cssClass="error" /></span>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-3">
+						<form:label path="">Product Brand</form:label>
+					</div>
+					<div class="col-sm-9">
+						<form:input path="brand" cssClass="form-control" required="" />
+						<span><form:errors path="brand" class="error" /></span>
+					</div>
+				</div>
+				<br>
 
 				<!-- ADDED THIS CODE TO DYNAMICALLY LOAD PRODUCT LIST FROM DATABASE -->
-				<form:label path="">Product Category</form:label>
+				<div class="row">
+					<div class="col-sm-3">
+						<form:label path="">Product Category</form:label>
+					</div>
+					<div class="col-sm-9">
+						<form:select path="category" cssClass="form-control">
 
-				<form:select path="category" cssClass="form-control">
+							<c:forEach items="${categories}" var="categories">
 
-					<c:forEach items="${categories}" var="categories">
+								<form:option value="${categories.categoryName }">${categories.categoryName}</form:option>
 
-						<form:option value="${categories.categoryName }">${categories.categoryName}</form:option>
+							</c:forEach>
 
-					</c:forEach>
-
-				</form:select>
-
-				<form:label path="">Product Price</form:label>
-				<form:input path="price" class="form-control" />
-				<span><form:errors path="price" cssClass="error" /></span>
-				<form:label path="file">
-					<spring:message text="Choose Image" />
-				</form:label>
-				<form:input path="file" type="file" cssClass="form-control"
-					required="required" />
+						</form:select>
+					</div>
+				</div>
 				<br>
-				<input type="Submit" value="save" class="btn btn-primary" />
-
+				<div class="row">
+					<div class="col-sm-3">
+						<form:label path="">Product Price</form:label>
+					</div>
+					<div class="col-sm-9">
+						<form:input path="price" class="form-control" />
+						<span><form:errors path="price" cssClass="error" /></span>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-3">
+						<form:label path="file">
+							<spring:message text="Choose Image" />
+						</form:label>
+					</div>
+					<div class="col-sm-9">
+						<form:input path="file" type="file" cssClass="form-control"
+							required="required" />
+					</div>
+				</div>
+				<br>
+					<input type="Submit" value="save" class="btn btn-primary"/>
 			</form:form>
 		</div>
-
 	</div>
-
-
-
-
 	<table class="table table-striped">
-
 		<tr>
 			<th>ID</th>
 			<th>Product Name</th>

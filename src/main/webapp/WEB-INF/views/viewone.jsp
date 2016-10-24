@@ -90,7 +90,7 @@
 							<li class="grey">${product.price}Rs.Only/-</li>
 
 							<c:choose>
-								<c:when test="${(isAdmin)}">
+								<c:when test="${(isUser)}">
 									<li class="grey"><a href="<c:url value="${CP }/cart"/>"
 										class="btn btn-primary">ADD TO CART <span
 											class="glyphicon glyphicon-shopping-cart"></span></a></li>

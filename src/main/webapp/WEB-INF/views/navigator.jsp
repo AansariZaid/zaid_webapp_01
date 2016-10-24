@@ -60,7 +60,7 @@
 					class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
 			<c:if test="${(isAdmin)  || (isUser)}">
-				<li><a href="<c:url value="/logout"/>">LogOut <span
+				<li><a href="<c:url value="/logout"/>">Log Out <span
 						class="glyphicon glyphicon-log-out"></span></a></li>
 		
 		
@@ -70,7 +70,8 @@
 
 			<c:if test="${(isAdmin)  || (isUser)}">
 
-				<li><a href="<c:url value="/logout"/>">LogOut</a></li>
+				<li><a href="<c:url value="/logout"/>">Log Out <span
+						class="glyphicon glyphicon-log-out"></span>`</a></li>
 			</c:if>
 
 

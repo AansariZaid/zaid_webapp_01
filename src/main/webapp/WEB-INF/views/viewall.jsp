@@ -35,7 +35,7 @@
 							<a href="${cp}/viewone/{{x.id}}" class="btn btn-primary">View Details <span class="glyphicon glyphicon-chevron-right"></span></a>
 							&#160;
 							<c:choose>
-								<c:when test="${(isAdmin)}">
+								<c:when test="${(isUser)}">
 									<a href="<c:url value="${CP }/cart"/>"
 										class="btn btn-primary">ADD TO CART <span
 											class="glyphicon glyphicon-shopping-cart"></span></a>

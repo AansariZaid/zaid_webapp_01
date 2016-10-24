@@ -31,66 +31,49 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<label for="password" class="col-sm-3 control-label">Password</label>
+						<label for="password" class="col-sm-3 control-label">PIN Number</label>
 						<div class="col-sm-9">
 							<input type="password" id="password" placeholder="Password"
 								class="form-control">
 						</div>
 					</div>
 				<div class="panel-body">
-						<label for="country" class="col-sm-3 control-label"></label>
-						<div class="col-sm-9">
-							<select id="country" class="form-control">
-								<option>India</option>
-								<option>China</option>
-								<option>Bangladesh</option>
-								<option>Pakistan</option>
-								<option>Afganistan</option>
-								<option>Russia</option>
-								<option>Nepal</option>
-								<option>Bhutan</option>
+						<label for="country" class="col-sm-3 control-label">CVV</label>
+						<div class = "col-sm-4">
+							<select id="month" class="form-control">
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+								<option>06</option>
+								<option>07</option>
+								<option>08</option>
+								<option>09</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select></div>
+							<div class = "col-sm-5">
+							<select id="year" class="form-control">
+								<option>2016</option>
+								<option>2017</option>
+								<option>2018</option>
+								<option>2019</option>
+								<option>2020</option>
+								<option>2021</option>
+								<option>2022</option>
+								<option>2023</option>
+								<option>2024</option>
+								<option>2025</option>
+								<option>2026</option>
+								<option>2027</option>
 							</select>
-						</div>
-					</div>
-					<div class="panel-body">
-						<label for="country" class="col-sm-3 control-label">Country</label>
-						<div class="col-sm-9">
-							<select id="country" class="form-control">
-								<option>India</option>
-								<option>China</option>
-								<option>Bangladesh</option>
-								<option>Pakistan</option>
-								<option>Afganistan</option>
-								<option>Russia</option>
-								<option>Nepal</option>
-								<option>Bhutan</option>
-							</select>
-						</div>
-					</div>
-					<!-- /.form-group -->
-					<div class="panel-body">
-						<label class="control-label col-sm-3">Gender</label>
-						<div class="col-sm-6">
-							<div class="row">
-								<div class="col-sm-4">
-									<label class="radio-inline"> <input type="radio"
-										name="genderradio" id="femaleRadio" value="Female">Female
-									</label>
-								</div>
-								<div class="col-sm-4">
-									<label class="radio-inline"> <input type="radio"
-										name="genderradio" id="maleRadio" value="Male">Male
-									</label>
-								</div>
-
 							</div>
-						</div>
 					</div>
-					<!-- /.form-group -->
-
 					<div class="panel-body">
 						<div class="col-sm-3 col-sm-offset-3">
-							<button type="submit" name="_eventId_submit" class="btn btn-primary btn-block">Register</button>
+							<button type="submit" name="_eventId_submit" class="btn btn-primary btn-block">Make Payment</button>
 						</div>
 					</div>
 				</div>

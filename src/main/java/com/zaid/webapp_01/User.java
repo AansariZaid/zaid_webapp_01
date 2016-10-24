@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -30,6 +29,12 @@ public class User {
 	@Column(name = "country")
 	private String country;
 
+	private String billingAddressLine1;
+	private String billingAddressLine2;
+	private String shippingAddressLine1;
+	private String shippingAddressLine2;
+	
+	
 	/*
 	 * @Pattern.List({
 	 * 
