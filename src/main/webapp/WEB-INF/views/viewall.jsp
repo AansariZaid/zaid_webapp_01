@@ -28,11 +28,9 @@
 					<td>{{x.price}}</td>
 					<td><img src="${cp}/resources/images/productimages/{{x.id }}.jpg" height = "150" width = "150"/></td>
 					<td>
-						<div class="">
-							<button type="button" class="btn btn-primary" href="">View</button>
+						<div>
+							<button type="button" class="btn btn-primary" href="${cp}/viewone/{{x.id}}">View</button>
 							&#160;
-							<!-- 			<button type="button" class="btn btn-primary" href= "">Edit</button>&#160;
-							<button type="button" class="btn btn-primary" href= "">Delete</button>&#160; -->
 							<button type="button" class="btn btn-primary" href="">Add
 								to Cart</button>
 						</div>

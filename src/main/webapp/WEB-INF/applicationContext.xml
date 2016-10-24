@@ -43,5 +43,6 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<tx:annotation-driven />
 	<bean id="productDAO" class="com.zaid.webapp_01.ProductDAOImpl" />
-
+	<bean id="userDAO" class="com.zaid.webapp_01.UserDAOImpl" />
+	<bean id="categoryDAO" class="com.zaid.webapp_01.CategoryDAOImpl"/>
 </beans>

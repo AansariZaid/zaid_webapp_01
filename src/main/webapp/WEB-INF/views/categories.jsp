@@ -1,12 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div class="row" >
 
-</body>
-</html>
+	<div class="col-sm-4">
+		<div class="thumbnail">
+			<img src="resources/images/cctv.jpg" alt="cctv System"S>
+			<div class="caption">
+				<h3>CCTV Surviellance</h3>
+				<a href="viewall" class="btn btn-primary" role="button">Show
+					More</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="thumbnail">
+			<img src="resources/images/firealarm.jpg" alt="cctv System">
+			<div class="caption">
+				<h3>Fire Alarm</h3>
+				<a href="viewall" class="btn btn-primary" role="button">Show
+					More</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="thumbnail">
+			<img src="resources/images/ids.jpg" alt="cctv System" >
+			<div class="caption">
+				<h3>Intrusion Alarm System</h3>
+				<a href="viewall" class="btn btn-primary" role="button">Show
+					More</a>
+			</div>
+		</div>
+	</div>
+
+</div>

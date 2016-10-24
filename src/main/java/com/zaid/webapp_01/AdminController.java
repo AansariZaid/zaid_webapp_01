@@ -24,13 +24,20 @@ public class AdminController {
 
 	@Autowired
 	ProductDAO pDAO;
+	@Autowired
+	CategoryDAO cat;
+	@Autowired
+	UserDAO uDAO;
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView getAllProducts() {
-		ModelAndView modelAndView = new ModelAndView("admin");
-		modelAndView.addObject("product", new ProductModel());
-		modelAndView.addObject("products", pDAO.getAll());
-		return modelAndView;
+		ModelAndView mv = new ModelAndView("admin");
+		mv.addObject("product", new ProductModel());
+		mv.addObject("products", pDAO.getAll());
+		mv.addObject("categories", cat.getAll()); // ADDED CATEGORY OBJECT TO
+													// FORWARD DATA TO PAGE
+													// USING ATTRIBUTES.
+		return mv;
 
 	}
 
@@ -40,6 +47,10 @@ public class AdminController {
 		// ProductModel product = pDAO.get(id);
 		mv.addObject("product", pDAO.getProductById(id));
 		mv.addObject("products", pDAO.getAll());
+		mv.addObject("categories", cat.getAll()); // ADDED TO MAKE THE LIST
+													// UPDATED WHILE EIDITING
+													// PRODUCT OTHERWISE LIST
+													// WILL COME EMPTY
 		return mv;
 	}
 
@@ -51,16 +62,15 @@ public class AdminController {
 	}
 
 	@PostMapping(value = "/admin/save")
-	public String adminSave(@Valid @ModelAttribute("product") ProductModel product,BindingResult result, HttpServletRequest request,
-			 Model model) {
+	public String adminSave(@Valid @ModelAttribute("product") ProductModel product, BindingResult result,
+			HttpServletRequest request, Model model) {
 
-		
 		if (result.hasErrors()) {
 			model.addAttribute("product", product);
 			model.addAttribute("products", pDAO.getAll());
 			System.out.println("Found Errors in inputs");
 			return "/admin";
-		} 
+		}
 		if (product.getId() == 0) {
 			pDAO.insertProduct(product);
 
@@ -86,7 +96,7 @@ public class AdminController {
 
 		} else {
 			pDAO.updateProduct(product);
-			
+
 			MultipartFile file = product.getFile();
 			String originalFile = file.getOriginalFilename();
 
@@ -108,7 +118,32 @@ public class AdminController {
 			}
 
 		}
-		
+
 		return "redirect:/admin";
 	}
+
+	@PostMapping(value = "/register/save")
+	public String signUp(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request,
+			Model model) {
+
+		if (result.hasErrors()) {
+			System.out.println("Found Errors in inputs");
+			return "/register";
+		}
+		
+		model.addAttribute("user", new User());
+		uDAO.insertUser(user);
+
+		return "redirect:/login";
+	}
+	
+	
+	@RequestMapping("/register")
+	public ModelAndView registerPage() {
+		ModelAndView mv = new ModelAndView("register");
+		mv.addObject("user",new User());
+		return mv;
+
+	}
+
 }

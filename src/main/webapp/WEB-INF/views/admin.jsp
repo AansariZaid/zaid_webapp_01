@@ -26,21 +26,32 @@
 				</c:if>
 
 				<form:label path="">Product Name</form:label>
-				<form:input path="name" class="form-control" required="" />
-				<span><form:errors path="name" class="error" /></span>
+				<form:input path="name" cssClass="form-control" required="" />
+				<span><form:errors path="name" cssClass="error" /></span>
 				<form:label path="">Product Brand</form:label>
-				<form:input path="brand" class="form-control" required="" />
+				<form:input path="brand" cssClass="form-control" required="" />
 				<span><form:errors path="brand" class="error" /></span>
+
+				<!-- ADDED THIS CODE TO DYNAMICALLY LOAD PRODUCT LIST FROM DATABASE -->
 				<form:label path="">Product Category</form:label>
-				<form:input path="category" class="form-control" required="" />
-				<span><form:errors path="category" class="error" /></span>
+
+				<form:select path="category" cssClass="form-control">
+
+					<c:forEach items="${categories}" var="categories">
+
+						<form:option value="${categories.categoryName }">${categories.categoryName}</form:option>
+
+					</c:forEach>
+
+				</form:select>
+
 				<form:label path="">Product Price</form:label>
 				<form:input path="price" class="form-control" />
-				<span><form:errors path="price" class="error" /></span>
+				<span><form:errors path="price" cssClass="error" /></span>
 				<form:label path="file">
 					<spring:message text="Choose Image" />
 				</form:label>
-				<form:input path="file" type="file" class="form-control"
+				<form:input path="file" type="file" cssClass="form-control"
 					required="required" />
 
 				<input type="Submit" value="save" class="btn btn-primary" />
@@ -56,9 +67,9 @@
 
 		<tr>
 			<th>ID</th>
-			<th>Name</th>
-			<th>Brand</th>
+			<th>Product Name</th>
 			<th>Category</th>
+			<th>Brand</th>
 			<th>Price</th>
 			<th>Image</th>
 			<th>&#160</th>
@@ -71,7 +82,9 @@
 				<td>${products.category }</td>
 				<td>${products.brand }</td>
 				<td>${products.price }</td>
-				<td><img src="${cp}/resources/images/productimages/${products.id }.jpg"  height = "150" width = "150"/></td>
+				<td><img
+					src="${cp}/resources/images/productimages/${products.id }.jpg"
+					height="150" width="150" /></td>
 
 				<td><a href="${cp}/admin/edit/${products.id }"
 					class="btn btn-primary">Edit</a> <a

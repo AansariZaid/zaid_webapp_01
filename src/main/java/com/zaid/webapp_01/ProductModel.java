@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,11 +20,12 @@ public class ProductModel {
 	private int id;
 	@NotEmpty(message = "Please Enter Product Name")
 	private String name;
-	@NotEmpty(message = "Please Enter Category Name")
+	
 	private String category;
 	@NotEmpty(message = "Please Enter Brand Name")
 	private String brand;
-	
+
+	@Max(value = 6, message = "Invalid Amount!!!!!  Please Enter Correct Price ")
 	private double price;
 	
 	@javax.persistence.Transient

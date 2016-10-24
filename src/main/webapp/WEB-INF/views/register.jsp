@@ -10,83 +10,63 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row col-sm-6 col-sm-offset-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
-				<div class="panel-body">
-					<label for="firstName" class="col-sm-3 control-label">Full
-						Name</label>
-					<div class="col-sm-9">
-						<input type="text" id="firstName" placeholder="Full Name"
-							class="form-control" autofocus>
-					</div>
-				</div>
-				<div class="panel-body">
-					<label for="email" class="col-sm-3 control-label">Email</label>
-					<div class="col-sm-9">
-						<input type="email" id="email" placeholder="Email"
-							class="form-control">
-					</div>
-				</div>
-				<div class="panel-body">
-					<label for="password" class="col-sm-3 control-label">Password</label>
-					<div class="col-sm-9">
-						<input type="password" id="password" placeholder="Password"
-							class="form-control">
-					</div>
-				</div>
-				<div class="panel-body">
-					<label for="birthDate" class="col-sm-3 control-label">Date
-						of Birth</label>
-					<div class="col-sm-9">
-						<input type="date" id="birthDate" class="form-control">
-					</div>
-				</div>
-				<div class="panel-body">
-					<label for="country" class="col-sm-3 control-label">Country</label>
-					<div class="col-sm-9">
-						<select id="country" class="form-control">
-							<option>India</option>
-							<option>China</option>
-							<option>Bangladesh</option>
-							<option>Pakistan</option>
-							<option>Afganistan</option>
-							<option>Russia</option>
-							<option>Nepal</option>
-							<option>Bhutan</option>
-						</select>
-					</div>
-				</div>
-				<!-- /.form-group -->
-				<div class="panel-body">
-					<label class="control-label col-sm-3">Gender</label>
-					<div class="col-sm-6">
-						<div class="row">
-							<div class="col-sm-4">
-								<label class="radio-inline"> <input type="radio"
-									name="genderradio" id="femaleRadio" value="Female">Female
-								</label>
-							</div>
-							<div class="col-sm-4">
-								<label class="radio-inline"> <input type="radio"
-									name="genderradio" id="maleRadio" value="Male">Male
-								</label>
-							</div>
 
-						</div>
-					</div>
+	<form:form action="${cp}/register/save" method="post"
+				modelAttribute="user">
+				<form:hidden path="enabled" value = "true"/>
+				<form:hidden path="role" value = "ROLE_USER"/>
+					
+	<div class = "row col-sm-6 col-sm-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">Register</div>
+			<div class="panel-body">
+				<form:label path="name" for="firstName" class="col-sm-3 control-form">Full Name</form:label>
+				<div class="col-sm-9">
+					<form:input path="name" placeholder="Full Name"  cssClass="form-control" autofocus = "autofocus" /> 
+					<span class="help-block">Last Name, First Name, eg.: Smith, Harry</span><span>
+					<form:errors path="name" cssClass="error" /></span>
 				</div>
-				<!-- /.form-group -->
-
-				<div class="panel-body">
-					<div class="col-sm-3 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary btn-block">Register</button>
-					</div>
+			</div>
+			<div class="panel-body">
+				<form:label path = "email" for="email" class="col-sm-3 control-form">Email</form:label>
+				<div class="col-sm-9">
+					<form:input path = "email" placeholder="Email" required = "" 
+						cssClass="form-control"/><span><form:errors path="email" cssClass="error" /></span>
+				</div>
+			</div>
+			<div class="panel-body">
+				<form:label path = "password" for="password" class="col-sm-3 control-form">Password</form:label>
+				<div class="col-sm-9">
+					<form:password path = "password" placeholder="Password" required = "" 
+						class="form-control"/>				<span><form:errors path="password" cssClass="error" /></span>
+				</div>
+			</div>
+			
+			<div class="panel-body">
+				<form:label path = "country" for="country" class="col-sm-3 control-form">Country</form:label>
+				<div class="col-sm-9">
+					<form:select path = "country" id="country" class="form-control">
+						<form:option value = "India">India</form:option>
+						<form:option value = "China">China</form:option>
+						<form:option value = "Bangladesh">Bangladesh</form:option>
+						<form:option value = "Pakistan">Pakistan</form:option>
+						<form:option value = "Afganistan">Afganistan</form:option>
+						<form:option value = "Russia">Russia</form:option>
+						<form:option value = "Nepal">Nepal</form:option>
+						<form:option value = "Bhutan">Bhutan</form:option>
+					</form:select>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-3 col-sm-offset-3">
+					<button type="Submit" value = "Register" class="btn btn-primary btn-block">Register</button>
 				</div>
 			</div>
 		</div>
-		<!-- /form -->
 	</div>
+	</form:form>
+</div>
+
 </body>
 </html>
 <%@ include file = "footer.jsp" %>

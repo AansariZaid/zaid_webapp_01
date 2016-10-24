@@ -69,8 +69,6 @@
 		<property name="maxUploadSize" value="1000000" />
 
 	</bean>
-
-
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<!-- this tag is help to execute annotations -->
 	<mvc:annotation-driven />

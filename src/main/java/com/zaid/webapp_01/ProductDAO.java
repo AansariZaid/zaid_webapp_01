@@ -10,5 +10,5 @@ public interface ProductDAO {
 	void updateProduct(ProductModel product);
 	public ProductModel getProductById(int productId);
 	public ProductModel getProductByPrice(int productPrice);
-
+	public List<ProductModel> getProductByCategory(String Category);
 }

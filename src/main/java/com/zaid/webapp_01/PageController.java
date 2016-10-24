@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,7 @@ public class PageController {
 
 	@Autowired
 	ProductDAO pDAO;
+
 	@RequestMapping("/")
 	public ModelAndView landingPage() {
 		ModelAndView mv = new ModelAndView("landinpage");
@@ -34,18 +36,10 @@ public class PageController {
 		return mv;
 
 	}
-	
 
 	@RequestMapping("/home")
 	public ModelAndView homePage() {
 		ModelAndView mv = new ModelAndView("home");
-		return mv;
-
-	}
-
-	@RequestMapping("/register")
-	public ModelAndView registerPage() {
-		ModelAndView mv = new ModelAndView("payment");
 		return mv;
 
 	}
@@ -70,12 +64,11 @@ public class PageController {
 		return pDAO.getAll();
 	}
 
-	@RequestMapping("/viewone")
-	public ModelAndView viewOnePage() {
-		ModelAndView mv = new ModelAndView("viewone");
-		return mv;
-	}
-
+	/*
+	 * @RequestMapping("/viewone/{id}") public ModelAndView viewOnePage() {
+	 * ModelAndView mv = new ModelAndView("viewone"); mv.addObject(null); return
+	 * mv; }
+	 */
 	@RequestMapping("/aboutus")
 	public ModelAndView AboutUsPage() {
 		ModelAndView mv = new ModelAndView("aboutus");
@@ -86,6 +79,23 @@ public class PageController {
 	public ModelAndView coontactUsPage() {
 		ModelAndView mv = new ModelAndView("contactus");
 		return mv;
+	}
+
+	@RequestMapping("/displaycatgory/{catgory}")
+	public ModelAndView Productcategory(@PathVariable("catgory") String cate) {
+		ModelAndView modelAndView = new ModelAndView("displaycatgory");
+		List<ProductModel> products = pDAO.getProductByCategory(cate);
+		modelAndView.addObject("productData", products);
+		return modelAndView;
+	}
+
+	@RequestMapping("/viewone/{id}")
+	public ModelAndView singledata(@PathVariable("id") int id) {
+		ModelAndView modelAndView = new ModelAndView("singledata");
+
+		modelAndView.addObject("product", pDAO.getProductById(id));
+
+		return modelAndView;
 	}
 
 }
