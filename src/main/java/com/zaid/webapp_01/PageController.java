@@ -34,7 +34,6 @@ public class PageController {
 	public ModelAndView cartPage() {
 		ModelAndView mv = new ModelAndView("cart");
 		return mv;
-
 	}
 
 	@RequestMapping("/home")
@@ -81,17 +80,17 @@ public class PageController {
 		return mv;
 	}
 
-	@RequestMapping("/displaycatgory/{catgory}")
-	public ModelAndView Productcategory(@PathVariable("catgory") String cate) {
-		ModelAndView modelAndView = new ModelAndView("displaycatgory");
-		List<ProductModel> products = pDAO.getProductByCategory(cate);
+	@RequestMapping("/viewcategory/{category}")
+	public ModelAndView Productcategory(@PathVariable("category") String category) {
+		ModelAndView modelAndView = new ModelAndView("displaycategory");
+		List<ProductModel> products = pDAO.getProductByCategory(category);
 		modelAndView.addObject("productData", products);
 		return modelAndView;
 	}
 
 	@RequestMapping("/viewone/{id}")
 	public ModelAndView singledata(@PathVariable("id") int id) {
-		ModelAndView modelAndView = new ModelAndView("singledata");
+		ModelAndView modelAndView = new ModelAndView("viewone");
 
 		modelAndView.addObject("product", pDAO.getProductById(id));
 

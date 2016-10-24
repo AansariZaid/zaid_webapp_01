@@ -57,7 +57,7 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<ProductModel> getProductByCategory(String Category) {
 		// TODO Auto-generated method stub
-		Query query = session.getCurrentSession().createQuery("from ProductModel WHERE productCategory=?");
+		Query query = session.getCurrentSession().createQuery("from Productdata WHERE category=?");
 		query.setParameter(0, Category);
 		return query.list();
 	}

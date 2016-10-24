@@ -10,6 +10,10 @@
 </head>
 <body>
 <%@ include file = "carousel.jsp" %>
+<br>
+<%@ include file = "categories.jsp" %>
+<br>
+<br>
 </body>
 </html>
 <%@ include file = "footer.jsp" %>

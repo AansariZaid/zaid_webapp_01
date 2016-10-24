@@ -53,8 +53,9 @@
 				</form:label>
 				<form:input path="file" type="file" cssClass="form-control"
 					required="required" />
-
+				<br>
 				<input type="Submit" value="save" class="btn btn-primary" />
+
 			</form:form>
 		</div>
 
@@ -93,5 +94,6 @@
 		</c:forEach>
 	</table>
 </div>
-
+<br>
+<br>
 <%@ include file="footer.jsp"%>

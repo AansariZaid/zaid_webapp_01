@@ -1,6 +1,6 @@
 <%@ include file="linking.jsp"%>
 <%@ include file="navigator.jsp"%>
-<title>viewall</title>
+<title>View Cart</title>
 <
 <form:form>
 
@@ -26,23 +26,17 @@
 						<td>{{x.category}}</td>
 						<td>{{x.price}}</td>
 						<td></td>
-						<td>
-							<div class="">
-								<button type="button" class="btn btn-primary" href="">
-									<span class="	glyphicon glyphicon-shopping-cart"></span>Continue
-									Shopping
-								</button>
-								&#160;
-								<button type="button" class="btn btn-primary" href="">
-									<span class="glyphicon glyphicon-log-out"></span>Check Out
-								</button>
-							</div>
-						</td>
+						<td><a href="${cp}/viewall" class="btn btn-primary"><span
+								class="glyphicon glyphicon-shopping-cart"></span> Continue
+								Shopping</a> &#160; <a href="memberShip" class="btn btn-primary"><span
+								class="glyphicon glyphicon-log-out"></span> Check Out</a></td>
 					</tr>
 				</thead>
 			</table>
 		</div>
 	</div>
 </form:form>
+<br>
+<br>
 <%@ include file="footer.jsp"%>
 <script src="resources/js/dataservice.js"></script>
