@@ -91,9 +91,7 @@ public class PageController {
 	@RequestMapping("/viewone/{id}")
 	public ModelAndView singledata(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView("viewone");
-
 		modelAndView.addObject("product", pDAO.getProductById(id));
-
 		return modelAndView;
 	}
 

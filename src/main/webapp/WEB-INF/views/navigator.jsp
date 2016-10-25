@@ -14,6 +14,7 @@
 	<nav class="navbar navbar-pills navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
+		
 			<a class="navbar-brand" href="${cp}/home">Securetronic</a>
 		</div>
 		<ul class="nav navbar-nav">
@@ -26,17 +27,19 @@
 				<li><a href="${cp }/cart"><span
 						class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 
-				<!-- web flow is being called from here using membership in href -->
+				<!-- 
+				web flow is being called from here using membership in href -->
 				<li><a href="memberShip"><span
 						class="glyphicon glyphicon-log-out"></span> Check Out</a></li>
 
 			</security:authorize>
+			
 			<security:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin">
 				<li><a href="${cp }/admin"><span
 						class="glyphicon glyphicon-user"></span> Admin</a></li>
 			</security:authorize>
 		</ul>
-
+		
 		<ul class="nav navbar-nav navbar-right">
 
 
@@ -81,14 +84,11 @@
 				</c:when>
 				<c:otherwise>
 
-
 					<li><a href="${cp }/register"><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 
 					<li><a href="${cp }/login"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
-
 
 				</c:otherwise>
 			</c:choose>

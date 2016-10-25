@@ -6,7 +6,7 @@
 
 	<div class="panel panel-default col-sm-8 col-sm-offset-2">
 
-		<div class="row panel-heading">Product Details</div>
+		<div class="row panel-heading"><h3><span class="glyphicon glyphicon-dashboard"></span>  <b>Product Details</b></h3></div>
 
 		<div class="panel-body">
 
@@ -116,8 +116,8 @@
 					height="150" width="150" /></td>
 
 				<td><a href="${cp}/admin/edit/${products.id }"
-					class="btn btn-primary">Edit</a> <a
-					href="${cp}/admin/delete/${products.id }" class="btn btn-primary">Delete</a></td>
+					class="btn btn-primary">Edit  <span class= "glyphicon glyphicon-edit"></span></a> <a
+					href="${cp}/admin/delete/${products.id }" class="btn btn-primary">Delete <span class= "glyphicon glyphicon-trash"></span></a></td>
 			</tr>
 		</c:forEach>
 	</table>

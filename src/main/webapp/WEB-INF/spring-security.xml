@@ -7,9 +7,9 @@
 
 	<!-- User Access Permision -->
 	<http auto-config="false" use-expressions="true">
+		<intercept-url pattern="/**" access="permitAll" />
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
-		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"
 			username-parameter="email" password-parameter="password"
 			authentication-failure-url="/login" />
@@ -25,5 +25,4 @@
 				authorities-by-username-query="select email, role from user where email =?  " />
 		</authentication-provider>
 	</authentication-manager>
-
 </b:beans>

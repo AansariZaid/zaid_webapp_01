@@ -18,6 +18,7 @@ public class User {
 	@Column(name = "uid")
 	private int uid;
 
+	
 	@NotEmpty(message = "Please Enter Your Name")
 	@Column(name = "name")
 	private String name;

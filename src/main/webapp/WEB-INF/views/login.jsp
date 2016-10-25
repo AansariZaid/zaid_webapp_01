@@ -15,7 +15,7 @@
 </head>
 <body>
 <form action = "${cp}/login" method = "post" >
-	<div class="col-sm-5 col-sm-offset-4">
+	<div class="col-sm-6 col-sm-offset-3">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Login</div>
 			<div class="panel-body">
@@ -35,6 +35,11 @@
 			<div class="panel-body">
 				<div class="col-sm-offset-3">
 					<button type="submit" class="btn btn-primary btn-block">Login</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-offset-3">
+					<a href="${cp}/register" class="btn btn-primary btn-block">Sign Up</a>
 				</div>
 			</div>
 		</div>
