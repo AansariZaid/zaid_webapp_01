@@ -1,42 +1,54 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ include file="linking.jsp"%>
 <%@ include file="navigator.jsp"%>
-<title>View Cart</title>
-<
-<form:form>
+<script src="/resources/js/product.js?v3"></script>
+<script src="/resources/js/dataservice.js"></script>
+<!-- My -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<div class="container-wrapper">
 	<div class="container">
 
-		<div ng-app="myApp" ng-controller="myCtrl" ng-init="test='${scope}'">
-			<p>
-				<input type="text" class="form-control" id="usr" ng-model="test">
-			</p>
-			<table class="table table-hover">
-				<thead>
+		<section class="container" ng-app="myApp">
+
+			<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
+					<div class="panel panel-default">
+						<div class="panel-heading">Your Shopping Summary</div>
+						<div class="panel-body">Please Make Sure All the Products Are of Exact Quantity As You have Ordered</div>
+					</div>
+				<table class="table table-hover">
 					<tr>
-						<th ng-click="orderByMe('id')">ID</th>
-						<th ng-click="orderByMe('name')">Name</th>
-						<th ng-click="orderByMe('band')">Brand</th>
-						<th ng-click="orderByMe('category')">Category</th>
-						<th ng-click="orderByMe('price')">price</th>
+						<th>Product Name</th>
+						<th>Price</th>
+						<th>Ordered Quantity</th>
+						<th>Total</th>
+						<th>&#160;</th>
 					</tr>
-					<tr ng-repeat="x in names | orderBy:myOrderBy | filter:test">
-						<td>{{x.id}}</td>
-						<td>{{x.name}}</td>
-						<td>{{x.brand}}</td>
-						<td>{{x.category}}</td>
-						<td>{{x.price}}</td>
-						<td></td>
-						<td><a href="${cp}/viewall" class="btn btn-primary"><span
-								class="glyphicon glyphicon-shopping-cart"></span> Continue
-								Shopping</a> &#160; <a href="memberShip" class="btn btn-primary"><span
-								class="glyphicon glyphicon-log-out"></span> Check Out</a></td>
+					<tr ng-repeat="item in cart.cartItems">
+						<td>{{item.product.name}}</td>
+						<td>{{item.product.price}}</td>
+						<td>{{item.productQuantity}}</td>
+						<td>{{item.totalPrice}}</td>
+						<td><a href="#" class="btn btn-primary"
+							ng-click="removeFromCart(item.product.productId)"><span
+								class="glyphicon glyphicon-remove"></span> Remove From Cart</a></td>
 					</tr>
-				</thead>
-			</table>
-		</div>
-	</div>
-</form:form>
-<br>
-<br>
-<%@ include file="footer.jsp"%>
-<script src="resources/js/dataservice.js"></script>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>Grand Total</th>
+						<th>{{calGrandTotal()}}</th>
+						<th></th>
+					</tr>
+				</table>
+
+				<div>
+					<a class="btn btn-danger pull-left" ng-click="clearCart()"><span
+						class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a> <a
+						href="memberShip" class="btn btn-primary pull-right"><span
+						class="glyphicon glyphicon-log-out"></span> Check out</a>
+
+				</div>
+
+			</div>
+		</section>

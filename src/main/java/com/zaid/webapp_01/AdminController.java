@@ -143,7 +143,6 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("register");
 		mv.addObject("user",new User());
 		return mv;
-
 	}
 
 }

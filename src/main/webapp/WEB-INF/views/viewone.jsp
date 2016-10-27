@@ -88,26 +88,18 @@
 							<li class="header">${product.brand}</li>
 							<li>${product.category}</li>
 							<li class="grey">${product.price}Rs.Only/-</li>
-
 							<c:choose>
 								<c:when test="${(isUser)}">
 									<li class="grey"><a href="<c:url value="${CP }/cart"/>"
 										class="btn btn-primary">ADD TO CART <span
 											class="glyphicon glyphicon-shopping-cart"></span></a></li>
-
 								</c:when>
 								<c:otherwise>
 									<li class="grey"><a href="<c:url value="${CP }/login"/>"
 										class="btn btn-primary">Login to Purchase<span
 											class="glyphicon glyphicon-shopping-cart"></span></a></li>
-
-
-
 								</c:otherwise>
 							</c:choose>
-
-
-
 
 						</ul>
 					</div>

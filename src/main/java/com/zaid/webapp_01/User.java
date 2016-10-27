@@ -1,10 +1,12 @@
 package com.zaid.webapp_01;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -18,7 +20,6 @@ public class User {
 	@Column(name = "uid")
 	private int uid;
 
-	
 	@NotEmpty(message = "Please Enter Your Name")
 	@Column(name = "name")
 	private String name;
@@ -30,28 +31,7 @@ public class User {
 	@Column(name = "country")
 	private String country;
 
-	private String billingAddressLine1;
-	private String billingAddressLine2;
-	private String shippingAddressLine1;
-	private String shippingAddressLine2;
-	
-	
-	/*
-	 * @Pattern.List({
-	 * 
-	 * @Pattern(regexp = "(?=.*[0-9])", message =
-	 * "Password must contain one digit."),
-	 * 
-	 * @Pattern(regexp = "(?=.*[a-z])", message =
-	 * "Password must contain one lowercase letter."),
-	 * 
-	 * @Pattern(regexp = "(?=.*[A-Z])", message =
-	 * "Password must contain one uppercase letter."),
-	 * 
-	 * @Pattern(regexp = "(?=\\S+$)", message =
-	 * "Password must contain no whitespace.") })
-	 */
-	@Size(min = 6, max = 25, message = "Please Enter A Valid Password")	
+	@Size(min = 6, max = 25, message = "Please Enter A Valid Password")
 	@NotEmpty(message = "Please Enter A Valid Password")
 	@Column(name = "password")
 	private String password;
@@ -61,6 +41,37 @@ public class User {
 
 	@Column(name = "role")
 	private String role;
+
+	/*--------CART-----*/
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private Cart cart;
+	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	/*---------Billing address----*/
+	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private  BillingAddress billingAddress;
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+	
+	/*-------Shipping Address----*/
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private  ShippingAddress shippingAddress;
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
 
 	public String getCountry() {
 		return country;
@@ -74,7 +85,7 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public boolean getEnabled() {
+	public boolean isEnabled() {
 		return enabled;
 	}
 

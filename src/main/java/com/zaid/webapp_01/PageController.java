@@ -58,8 +58,8 @@ public class PageController {
 
 	@RequestMapping("/viewall/all")
 	@ResponseBody
-
 	List<ProductModel> viewAllProduct() {
+		System.out.println(pDAO.getAll());
 		return pDAO.getAll();
 	}
 

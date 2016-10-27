@@ -32,16 +32,14 @@
 							src="${cp}/resources/images/productimages/{{x.id }}.jpg"
 							height="150" width="150" /></td>
 						<td>
-							<a  class="btn btn-warning btn-large" href = "${cp }/cart"
+							<button type="button" class="btn btn-primary"
 								ng-click="addToCart(x.id)">
-								<span class="glyphicon glyphicon-shopping-cart"></span> ADD TO
-								CART
-							</a>
-						</td>
-
-						<td><a href="${cp}/viewone/{{x.id}}" class="btn btn-primary">View
+								<span class="glyphicon glyphicon-shopping-cart"></span> ADD TO CART
+							</button>
+							<a href="${cp}/viewone/{{x.id}}" class="btn btn-primary">View
 								Details <span class="glyphicon glyphicon-chevron-right"></span>
-						</a></td>
+						</a>
+						</td>
 						<%--		
 							<c:choose>
 								<c:when test="${(isUser)}">
@@ -72,5 +70,5 @@
 	<br>
 	<br>
 	<%@ include file="footer.jsp"%>
-	<script src="resources/js/dataservice.js?v3"></script>
+	<script src="resources/js/dataservice.js"></script>
 </body>

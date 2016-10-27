@@ -3,7 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="security"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -29,8 +28,8 @@
 
 				<!-- 
 				web flow is being called from here using membership in href -->
-				<li><a href="memberShip"><span
-						class="glyphicon glyphicon-log-out"></span> Check Out</a></li>
+				<!-- <li><a href="memberShip"><span
+						class="glyphicon glyphicon-log-out"></span> Check Out</a></li> -->
 
 			</security:authorize>
 			

@@ -15,8 +15,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public void insertCategory(CategoryModel category) {
 		
-		session.getCurrentSession().persist(category);
-		
+		session.getCurrentSession().persist(category);		
 	}
 
 	@Override

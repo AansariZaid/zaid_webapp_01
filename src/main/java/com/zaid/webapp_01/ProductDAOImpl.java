@@ -44,7 +44,6 @@ public class ProductDAOImpl implements ProductDAO {
 	public ProductModel getProductById(int productId) {
 		// TODO Auto-generated method stub
 		ProductModel p = session.getCurrentSession().get(ProductModel.class, new Integer(productId));
-		
 		return p;
 	}
 
